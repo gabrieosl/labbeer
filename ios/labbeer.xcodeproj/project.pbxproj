@@ -20,6 +20,9 @@
 		C6886DDE98B1183AE83B0A61 /* libPods-labbeer-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D9A9D448539A6180B4ADBFA /* libPods-labbeer-tvOS.a */; };
 		D681F8B95429EEBC0901C5D6 /* libPods-labbeer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4554CE68D5276B85E92D8BF /* libPods-labbeer.a */; };
 		F24ECEBA7C66590995CCB60B /* libPods-labbeer-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1F6C5BA17F87DBA47A9C03 /* libPods-labbeer-tvOSTests.a */; };
+		2062512169804471A888E10A /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DF802F1C38754F03AD765D03 /* Poppins-ExtraLight.ttf */; };
+		D3C9412DDB294444AD8FFC42 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1FA396D8A5CB4D49B85DCD70 /* Poppins-Medium.ttf */; };
+		4C88E66E7F0E4CC0857A5D61 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1F4E5C8F620B421A8C58DA34 /* Poppins-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +70,9 @@
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F2EC65ECF2114886024357E7 /* Pods-labbeer-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-labbeer-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-labbeer-tvOSTests/Pods-labbeer-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		DF802F1C38754F03AD765D03 /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Poppins-ExtraLight.ttf"; path = "../assets/fonts/Poppins-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1FA396D8A5CB4D49B85DCD70 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; name = "Poppins-Medium.ttf"; path = "../assets/fonts/Poppins-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1F4E5C8F620B421A8C58DA34 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; name = "Poppins-Regular.ttf"; path = "../assets/fonts/Poppins-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +171,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				86EA4F219B21DDABC842E663 /* Pods */,
+				AFA5E69490CB48A2BF388427 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -197,6 +204,17 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		AFA5E69490CB48A2BF388427 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				DF802F1C38754F03AD765D03 /* Poppins-ExtraLight.ttf */,
+				1FA396D8A5CB4D49B85DCD70 /* Poppins-Medium.ttf */,
+				1F4E5C8F620B421A8C58DA34 /* Poppins-Regular.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -340,6 +358,9 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				2062512169804471A888E10A /* Poppins-ExtraLight.ttf in Resources */,
+				D3C9412DDB294444AD8FFC42 /* Poppins-Medium.ttf in Resources */,
+				4C88E66E7F0E4CC0857A5D61 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
