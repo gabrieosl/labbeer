@@ -26,6 +26,7 @@ const SignIn: React.FC = () => {
 
   const handleSignIn = useCallback(data => {
     console.log(data);
+    navigation.navigate('Activation');
   }, []);
 
   return (
