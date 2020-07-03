@@ -79,6 +79,8 @@ target 'labbeer' do
 
   pod 'react-native-config', :path => '../node_modules/react-native-config'
 
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
   target 'labbeerTests' do
     inherit! :complete
     # Pods for testing
