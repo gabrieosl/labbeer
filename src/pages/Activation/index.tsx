@@ -43,7 +43,7 @@ const Activation: React.FC = () => {
 
   const handleCheckActivation = useCallback(() => {
     console.log(activationCode);
-    navigation.navigate('Success');
+    navigation.navigate('ActivationSuccess');
   }, [activationCode, navigation]);
 
   const handleFocus = useCallback(() => {
