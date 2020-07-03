@@ -4,6 +4,8 @@ import { FormHandles } from '@unform/core';
 import { useNavigation } from '@react-navigation/native';
 // import { SOME_KEY } from 'react-native-dotenv';
 
+import { useAuth } from '../../hooks/auth';
+
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import GoogleButton from '../../components/GoogleButton';
@@ -20,13 +22,14 @@ import {
 } from './styles';
 
 const SignIn: React.FC = () => {
+  const { signIn } = useAuth();
   const navigation = useNavigation();
   const formRef = useRef<FormHandles>(null);
   const passwordInputRef = useRef<TextInput>(null);
 
   const handleSignIn = useCallback(data => {
     console.log(data);
-    navigation.navigate('Activation');
+    signIn(data);
   }, []);
 
   return (

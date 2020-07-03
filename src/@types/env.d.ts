@@ -1,3 +1,3 @@
 declare module 'react-native-dotenv' {
-  export const SOME_KEY: string;
+  export const API_URL: string;
 }
