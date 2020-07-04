@@ -17,7 +17,7 @@ import {
 } from './styles';
 
 const Header: React.FC = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   return (
     <Container>
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
         <Aside>
           <NameCoins>
             <Name>{user.name}</Name>
-            <Coins>
+            <Coins onPress={signOut}>
               <Image source={coin} />
               <CoinsValue>60</CoinsValue>
             </Coins>

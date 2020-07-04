@@ -7,6 +7,7 @@ import api from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 
 import Header from '../../components/Header';
+import BaseMenu from '../../components/BaseMenu';
 import locationIcon from '../../assets/Location.png';
 import arrowShape from '../../assets/arrow_shape.png';
 
@@ -49,8 +50,8 @@ const Map: React.FC = () => {
     Geolocation.getCurrentPosition(info => {
       console.log(info);
       setLocation({
-        latitude: info.coords.latitude || 0,
-        longitude: info.coords.longitude || 0,
+        latitude: 1, // info.coords.latitude || 0,
+        longitude: 1, // info.coords.longitude || 0,
         latitudeDelta: 0.15,
         longitudeDelta: 0.15,
       });
@@ -106,6 +107,7 @@ const Map: React.FC = () => {
           </BarItem>
         ))}
       </BarList>
+      <BaseMenu />
       {/* <TouchableOpacity onPress={signOut}>
         <Text>Logout</Text>
       </TouchableOpacity> */}
