@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Image, Text } from 'react-native';
-import MapView from 'react-native-maps';
+import React, { useState, useCallback, useEffect } from 'react';
+import { Text, TouchableOpacity } from 'react-native';
+import MapView, { Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
-// import { SOME_KEY } from 'react-native-dotenv';
 
-import Input from '../../components/Input';
-import logo from '../../assets/Logo.png';
+import api from '../../services/api';
+import { useAuth } from '../../hooks/auth';
 
-import { Container, SignInForm, MoreOptions } from './styles';
+import Header from '../../components/Header';
+
+import { Container } from './styles';
 
 interface LocationProps {
   latitude: number;
@@ -16,33 +17,65 @@ interface LocationProps {
   longitudeDelta: number;
 }
 
-const SignIn: React.FC = () => {
-  const [location, setLocation] = useState<LocationProps>({} as LocationProps);
+interface BarProps {
+  id: number;
+  name: string;
+  latitude: string;
+  longitute: string;
+}
 
-  useEffect(() => {
+const Map: React.FC = () => {
+  const { signOut } = useAuth();
+
+  const [location, setLocation] = useState<LocationProps>({} as LocationProps);
+  const [bars, setBars] = useState<BarProps[]>([]);
+
+  const useLocation = useCallback(() => {
     Geolocation.getCurrentPosition(info => {
+      console.log(info);
       setLocation({
         latitude: info.coords.latitude,
         longitude: info.coords.longitude,
-        latitudeDelta: 0.05,
-        longitudeDelta: 0.05,
+        latitudeDelta: 0.15,
+        longitudeDelta: 0.15,
       });
-      console.log(info);
     });
+  }, []);
+
+  useEffect(() => {
+    async function getData() {
+      const response = await api.get('/bars');
+      if (response.status === 200) {
+        setBars(response.data);
+      }
+    }
+    getData();
   }, []);
 
   return (
     <Container>
-      <Image source={logo} />
-      <SignInForm>
-        {/* <Input name="email" />
-        <Input name="password" /> */}
-      </SignInForm>
-      <Text>LALA</Text>
-      <MoreOptions />
-      <MapView showsUserLocation style={{ height: 400 }} region={location} />
+      <Header />
+      <MapView
+        showsUserLocation
+        style={{ height: 400 }}
+        region={location}
+        initialRegion={location}
+      >
+        {bars.map(bar => (
+          <Marker
+            key={bar.id}
+            coordinate={{
+              latitude: Number(bar.latitude),
+              longitude: Number(bar.longitute),
+            }}
+          />
+        ))}
+      </MapView>
+      <TouchableOpacity onPress={signOut}>
+        <Text>Logout</Text>
+      </TouchableOpacity>
     </Container>
   );
 };
 
-export default SignIn;
+export default Map;

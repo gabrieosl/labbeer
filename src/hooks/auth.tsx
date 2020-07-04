@@ -11,6 +11,7 @@ import api from '../services/api';
 
 interface User {
   name: string;
+  avatar: string;
 }
 
 interface AuthState {
@@ -47,7 +48,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     loadStoredData();
   }, []);
 
-  const signIn = useCallback(async ({ email, password }: SignInCredentials) => {
+  const signIn = useCallback(async ({ email }: SignInCredentials) => {
     const response = await api.get(`/customers?email=${email}`);
     if (response.status === 200 && response.data.length) {
       const user = response.data[0];

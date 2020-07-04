@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { StatusBar } from 'react-native';
 
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
@@ -9,18 +10,22 @@ import ActivationSuccess from '../pages/ActivationSuccess';
 const Auth = createStackNavigator();
 
 const AuthRoutes: React.FC = () => (
-  <Auth.Navigator
-    screenOptions={{
-      headerShown: false,
-      cardStyle: { backgroundColor: '#fff' },
-    }}
-    initialRouteName="SignIn"
-  >
-    <Auth.Screen name="SignIn" component={SignIn} />
-    <Auth.Screen name="SignUp" component={SignUp} />
-    <Auth.Screen name="Activation" component={Activation} />
-    <Auth.Screen name="ActivationSuccess" component={ActivationSuccess} />
-  </Auth.Navigator>
+  <>
+    <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+
+    <Auth.Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyle: { backgroundColor: '#fff' },
+      }}
+      initialRouteName="SignIn"
+    >
+      <Auth.Screen name="SignIn" component={SignIn} />
+      <Auth.Screen name="SignUp" component={SignUp} />
+      <Auth.Screen name="Activation" component={Activation} />
+      <Auth.Screen name="ActivationSuccess" component={ActivationSuccess} />
+    </Auth.Navigator>
+  </>
 );
 
 export default AuthRoutes;

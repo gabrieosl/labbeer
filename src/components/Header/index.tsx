@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { Image } from 'react-native';
 
 import { useAuth } from '../../hooks/auth';
 
@@ -18,7 +18,7 @@ import {
 
 const Header: React.FC = () => {
   const { user } = useAuth();
-  console.log(user);
+
   return (
     <Container>
       <Content>
