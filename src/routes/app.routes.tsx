@@ -1,9 +1,9 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'react-native';
+import React from "react";
+import { createStackNavigator } from "@react-navigation/stack";
+import { StatusBar } from "react-native";
 
-import Map from '../pages/Map';
-import Rewards from '../pages/Rewards';
+import Map from "../pages/Map";
+import Home from "../pages/Home";
 
 const Auth = createStackNavigator();
 
@@ -13,11 +13,11 @@ const AuthRoutes: React.FC = () => (
     <Auth.Navigator
       screenOptions={{
         headerShown: false,
-        cardStyle: { backgroundColor: '#fff' },
+        cardStyle: { backgroundColor: "#fff" },
       }}
-      initialRouteName="Rewards"
+      initialRouteName="Home"
     >
-      <Auth.Screen name="Rewards" component={Rewards} />
+      <Auth.Screen name="Home" component={Home} />
     </Auth.Navigator>
   </>
 );
