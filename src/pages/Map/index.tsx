@@ -1,9 +1,10 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
-import { Image } from 'react-native';
+import { Image, KeyboardAvoidingView, Platform } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import { useNavigation } from '@react-navigation/native';
 
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import api from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 
@@ -11,6 +12,7 @@ import Header from '../../components/Header';
 import BaseMenu from '../../components/BaseMenu';
 import locationIcon from '../../assets/Location.png';
 import arrowShape from '../../assets/arrow_shape.png';
+import settings from '../../assets/settings.png';
 import locator from '../../assets/locator.png';
 
 import {
@@ -102,93 +104,110 @@ const Map: React.FC = () => {
   useEffect(() => setCurrentLocation(), []);
 
   return (
-    <Container>
-      <Header />
-      <Location>
-        <MyLocationButton onPress={setCurrentLocation}>
-          <Image source={locator} />
-        </MyLocationButton>
-        <SearchLocationButton onPress={handleFilter}>
-          <LocationText
-            ref={inputRef}
-            placeholder={location.name}
-            autoCorrect={false}
-            autoCapitalize="none"
-            value={search}
-            onChangeText={e => setSearch(e)}
-            onSubmitEditing={() => setIsFiltering(false)}
-            onFocus={() => setIsFiltering(true)}
-            onBlur={() => setIsFiltering(false)}
-          />
-          <Image source={arrowShape} />
-        </SearchLocationButton>
-      </Location>
-      {isFiltering ? (
-        <BarList>
-          {bars.map(bar => (
-            <BarItem key={bar.id}>
-              <BarDetails onPress={() => navigation.navigate('Map')}>
-                <BarName>{bar.name}</BarName>
-                <BarLocation>
-                  <BarAddress numberOfLines={1}>{bar.address}</BarAddress>
-                </BarLocation>
-              </BarDetails>
-            </BarItem>
-          ))}
-        </BarList>
-      ) : (
-        <>
-          <MapView
-            showsUserLocation
-            style={{ height: 400 }}
-            region={location.data}
-          >
-            {bars.map(bar => (
-              <Marker
-                key={bar.id}
-                coordinate={{
-                  latitude: Number(bar.latitude),
-                  longitude: Number(bar.longitute),
-                }}
+    <>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        enabled
+      >
+        <Container>
+          <Header />
+          <Location>
+            <MyLocationButton onPress={setCurrentLocation}>
+              <Image source={locator} />
+            </MyLocationButton>
+            <SearchLocationButton>
+              <LocationText
+                ref={inputRef}
+                placeholder={location.name}
+                placeholderTextColor="#77838F"
+                autoCorrect={false}
+                autoCapitalize="none"
+                value={search}
+                onChangeText={e => setSearch(e)}
+                onSubmitEditing={() => setIsFiltering(false)}
+                onFocus={() => setIsFiltering(true)}
+                onBlur={() => setIsFiltering(false)}
               />
-            ))}
-          </MapView>
-          <Expand>
-            <ExpandButton />
-          </Expand>
-          <BarList>
-            {bars.map(bar => (
-              <BarItem key={bar.id}>
-                <BarDetails
-                  onPress={() => {
-                    setLocation({
-                      data: {
-                        latitude: Number(bar.latitude),
-                        longitude: Number(bar.longitute),
-                        latitudeDelta: 0.15,
-                        longitudeDelta: 0.15,
-                      },
-                      name: bar.name,
-                    });
-                  }}
-                >
-                  <BarName>{bar.name}</BarName>
-                  <BarLocation>
-                    <Image source={locationIcon} />
-                    <BarAddress numberOfLines={1}>{bar.address}</BarAddress>
-                  </BarLocation>
-                </BarDetails>
-                <BarLinkButton>
-                  <BarLinkButtonText>Conhecer</BarLinkButtonText>
+              {isFiltering ? (
+                <TouchableOpacity onPress={handleFilter}>
+                  <Image source={settings} />
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity onPress={handleFilter}>
                   <Image source={arrowShape} />
-                </BarLinkButton>
-              </BarItem>
-            ))}
-          </BarList>
-        </>
-      )}
+                </TouchableOpacity>
+              )}
+            </SearchLocationButton>
+          </Location>
+          {isFiltering ? (
+            <BarList>
+              {bars.map(bar => (
+                <BarItem key={bar.id}>
+                  <BarDetails onPress={() => navigation.navigate('Map')}>
+                    <BarName>{bar.name}</BarName>
+                    <BarLocation>
+                      <BarAddress numberOfLines={1}>{bar.address}</BarAddress>
+                    </BarLocation>
+                  </BarDetails>
+                </BarItem>
+              ))}
+            </BarList>
+          ) : (
+            <>
+              <MapView
+                showsUserLocation
+                style={{ height: 400 }}
+                region={location.data}
+              >
+                {bars.map(bar => (
+                  <Marker
+                    key={bar.id}
+                    coordinate={{
+                      latitude: Number(bar.latitude),
+                      longitude: Number(bar.longitute),
+                    }}
+                  />
+                ))}
+              </MapView>
+              <Expand>
+                <ExpandButton />
+              </Expand>
+              <BarList>
+                {bars.map(bar => (
+                  <BarItem key={bar.id}>
+                    <BarDetails
+                      onPress={() => {
+                        setLocation({
+                          data: {
+                            latitude: Number(bar.latitude),
+                            longitude: Number(bar.longitute),
+                            latitudeDelta: 0.15,
+                            longitudeDelta: 0.15,
+                          },
+                          name: bar.name,
+                        });
+                      }}
+                    >
+                      <BarName>{bar.name}</BarName>
+                      <BarLocation>
+                        <Image source={locationIcon} />
+                        <BarAddress numberOfLines={1}>{bar.address}</BarAddress>
+                      </BarLocation>
+                    </BarDetails>
+                    <BarLinkButton>
+                      <BarLinkButtonText>Conhecer</BarLinkButtonText>
+                      <Image source={arrowShape} />
+                    </BarLinkButton>
+                  </BarItem>
+                ))}
+              </BarList>
+            </>
+          )}
+        </Container>
+      </KeyboardAvoidingView>
       <BaseMenu />
-    </Container>
+    </>
   );
 };
 
