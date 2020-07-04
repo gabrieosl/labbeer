@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, Image } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 
@@ -7,8 +7,22 @@ import api from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 
 import Header from '../../components/Header';
+import locationIcon from '../../assets/Location.png';
+import arrowShape from '../../assets/arrow_shape.png';
 
-import { Container } from './styles';
+import {
+  Container,
+  Expand,
+  ExpandButton,
+  BarList,
+  BarItem,
+  BarDetails,
+  BarName,
+  BarLocation,
+  BarAddress,
+  BarLinkButton,
+  BarLinkButtonText,
+} from './styles';
 
 interface LocationProps {
   latitude: number;
@@ -20,6 +34,7 @@ interface LocationProps {
 interface BarProps {
   id: number;
   name: string;
+  address: string;
   latitude: string;
   longitute: string;
 }
@@ -34,8 +49,8 @@ const Map: React.FC = () => {
     Geolocation.getCurrentPosition(info => {
       console.log(info);
       setLocation({
-        latitude: info.coords.latitude,
-        longitude: info.coords.longitude,
+        latitude: info.coords.latitude || 0,
+        longitude: info.coords.longitude || 0,
         latitudeDelta: 0.15,
         longitudeDelta: 0.15,
       });
@@ -71,9 +86,29 @@ const Map: React.FC = () => {
           />
         ))}
       </MapView>
-      <TouchableOpacity onPress={signOut}>
+      <Expand>
+        <ExpandButton />
+      </Expand>
+      <BarList>
+        {bars.map(bar => (
+          <BarItem key={bar.id}>
+            <BarDetails>
+              <BarName>{bar.name}</BarName>
+              <BarLocation>
+                <Image source={locationIcon} />
+                <BarAddress numberOfLines={1}>{bar.address}</BarAddress>
+              </BarLocation>
+            </BarDetails>
+            <BarLinkButton>
+              <BarLinkButtonText>Conhecer</BarLinkButtonText>
+              <Image source={arrowShape} />
+            </BarLinkButton>
+          </BarItem>
+        ))}
+      </BarList>
+      {/* <TouchableOpacity onPress={signOut}>
         <Text>Logout</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </Container>
   );
 };
