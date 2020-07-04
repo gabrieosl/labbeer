@@ -2,7 +2,6 @@ import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-
   align-items: center;
 `;
 
@@ -28,35 +27,33 @@ export const Summary = styled.SafeAreaView`
   align-items: center;
 `;
 
-export const Stamps = styled.SafeAreaView`
+export const RewardsContainer = styled.SafeAreaView`
+  margin: 0 34px;
   align-self: baseline;
   /* margin: 10px 34px 0; */
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
-  justify-content: space-around;
 `;
-export const Stamp = styled.View`
+
+export const RewardItem = styled.View`
   margin-top: 30px;
+  width: 80%;
+  flex-wrap: wrap;
+  flex-direction: row;
+  border-color: #77838f;
+  padding-bottom: 8px;
+  border-bottom-width: 2px;
+`;
+
+export const RewardIcon = styled.View`
   width: 100;
   height: 100;
   border-radius: 1000;
   background: blue;
-  position: relative;
+  margin-right: 5px;
 `;
 
-export const StampLevel = styled.Text`
-  position: absolute;
-  background-color: yellow;
-  width: auto;
-  height: 16px;
-  padding: 8px;
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  border-radius: 12px;
-  border: 4px solid white;
-  text-align: right;
-  font-size: 13px;
-  font-weight: bold;
-  color: white;
+export const RewardDetails = styled.View`
+  flex-grow: 1;
+  flex-wrap: wrap;
 `;
