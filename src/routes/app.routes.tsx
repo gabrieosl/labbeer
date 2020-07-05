@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { StatusBar } from 'react-native';
 
 import Map from '../pages/Map';
+import Rewards from '../pages/Rewards';
 
 const Auth = createStackNavigator();
 
@@ -14,9 +15,9 @@ const AuthRoutes: React.FC = () => (
         headerShown: false,
         cardStyle: { backgroundColor: '#fff' },
       }}
-      initialRouteName="Map"
+      initialRouteName="Rewards"
     >
-      <Auth.Screen name="Map" component={Map} />
+      <Auth.Screen name="Rewards" component={Rewards} />
     </Auth.Navigator>
   </>
 );
