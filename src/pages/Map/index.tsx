@@ -6,7 +6,6 @@ import { useNavigation } from '@react-navigation/native';
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import api from '../../services/api';
-import { useAuth } from '../../hooks/auth';
 
 import Header from '../../components/Header';
 import BaseMenu from '../../components/BaseMenu';
@@ -75,8 +74,8 @@ const Map: React.FC = () => {
         data: {
           latitude: info.coords.latitude || 0,
           longitude: info.coords.longitude || 0,
-          latitudeDelta: 0.15,
-          longitudeDelta: 0.15,
+          latitudeDelta: 20,
+          longitudeDelta: 20,
         },
         name: 'Localização atual',
       });
@@ -188,8 +187,8 @@ const Map: React.FC = () => {
                           data: {
                             latitude: Number(bar.latitude),
                             longitude: Number(bar.longitute),
-                            latitudeDelta: 0.15,
-                            longitudeDelta: 0.15,
+                            latitudeDelta: 20,
+                            longitudeDelta: 20,
                           },
                           name: bar.name,
                         });

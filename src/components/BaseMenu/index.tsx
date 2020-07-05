@@ -42,7 +42,7 @@ const BaseMenu: React.FC = () => {
         <Image source={Discounts} />
       </MenuItem>
       <MenuItem
-        active={route.name === 'Profile'}
+        active={route.name === 'Bar'}
         onPress={() => navigation.navigate('Home')}
       >
         <Image source={User} />

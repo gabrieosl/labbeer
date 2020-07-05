@@ -92,8 +92,9 @@ export const BarDetail = styled.SafeAreaView``;
 
 export const ScanQRCodeButton = styled.TouchableOpacity`
   height: 50px;
-  width: 100%;
   margin: 0 20px;
+  padding: 0 60px;
+  /* width: 100%; */
 
   background: #f97115;
   border-radius: 8px;

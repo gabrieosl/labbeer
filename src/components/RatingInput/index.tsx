@@ -34,6 +34,7 @@ const RatingInput: React.FC = () => {
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           {ratingValues.map(ratingValue => (
             <Button
+              key={ratingValue}
               selected={rating === ratingValue}
               onPress={() => setRating(ratingValue)}
             >
