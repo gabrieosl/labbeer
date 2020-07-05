@@ -4,6 +4,7 @@ import { StatusBar } from "react-native";
 
 import Map from "../pages/Map";
 import Home from "../pages/Home";
+import Rewards from "../pages/Rewards";
 
 const Auth = createStackNavigator();
 
@@ -17,7 +18,7 @@ const AuthRoutes: React.FC = () => (
       }}
       initialRouteName="Home"
     >
-      <Auth.Screen name="Home" component={Home} />
+      <Auth.Screen name="Home" component={Rewards} />
     </Auth.Navigator>
   </>
 );
