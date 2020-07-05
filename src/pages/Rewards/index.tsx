@@ -1,10 +1,10 @@
-import React from "react";
-import { Text, Image, View, ScrollView } from "react-native";
-import { AnimatedCircularProgress } from "react-native-circular-progress";
-import Header from "../../components/Header";
-import BaseMenu from "../../components/BaseMenu";
+import React from 'react';
+import { Text, Image, View, ScrollView } from 'react-native';
+import { AnimatedCircularProgress } from 'react-native-circular-progress';
+import Header from '../../components/Header';
+import BaseMenu from '../../components/BaseMenu';
 
-import { useAuth } from "../../hooks/auth";
+import { useAuth } from '../../hooks/auth';
 
 import {
   Container,
@@ -15,10 +15,10 @@ import {
   RewardItem,
   RewardDetails,
   RewardIcon,
-} from "./styles";
+} from './styles';
 
-import MetaOne from "../../assets/Rewards/meta1.png";
-import MetaTwo from "../../assets/Rewards/meta2.png";
+import MetaOne from '../../assets/Rewards/meta1.png';
+import MetaTwo from '../../assets/Rewards/meta2.png';
 
 const Rewards: React.FC = () => {
   const { user } = useAuth();
@@ -28,7 +28,7 @@ const Rewards: React.FC = () => {
       <Container>
         <Header />
         <ScrollView
-          contentContainerStyle={{ alignItems: "center", width: "100%" }}
+          contentContainerStyle={{ alignItems: 'center', width: '100%' }}
         >
           <AnimatedCircularProgress
             style={{ marginTop: 25 }}
@@ -67,8 +67,8 @@ const Rewards: React.FC = () => {
             >
               {() => (
                 <View>
-                  <P style={{ color: "#F97115", fontWeight: "bold" }}>1.432</P>
-                  <P style={{ fontWeight: "bold" }}>/2.500</P>
+                  <P style={{ color: '#F97115', fontWeight: 'bold' }}>1.432</P>
+                  <P style={{ fontWeight: 'bold' }}>/2.500</P>
                 </View>
               )}
             </AnimatedCircularProgress>
@@ -80,7 +80,7 @@ const Rewards: React.FC = () => {
           <H1
             style={{
               fontSize: 26,
-              alignSelf: "baseline",
+              alignSelf: 'baseline',
               marginLeft: 35,
               marginTop: 15,
             }}
@@ -95,7 +95,7 @@ const Rewards: React.FC = () => {
                 <P>Junte 10 selos e ganhe um</P>
                 <P>copo de Caipirinha.</P>
                 <P>
-                  <P style={{ color: "#F97115" }}>5</P>
+                  <P style={{ color: '#F97115' }}>5</P>
                   /10
                 </P>
               </RewardDetails>
@@ -107,7 +107,7 @@ const Rewards: React.FC = () => {
                 <P>Junte 10 selos e ganhe uma</P>
                 <P>cerveja Budweiser.</P>
                 <P>
-                  <P style={{ color: "#F97115" }}>3</P>
+                  <P style={{ color: '#F97115' }}>3</P>
                   /10
                 </P>
               </RewardDetails>
