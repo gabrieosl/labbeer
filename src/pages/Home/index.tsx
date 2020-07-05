@@ -1,5 +1,7 @@
 import React from 'react';
 import { Text, Image, View, ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+
 import {
   Container,
   SectionContainer,
@@ -15,6 +17,8 @@ import {
   H1,
   H2,
   P,
+  ScanQRCodeButton,
+  ScanQRCodeText,
 } from './styles';
 
 import Header from '../../components/Header';
@@ -23,6 +27,8 @@ import BaseMenu from '../../components/BaseMenu';
 import Star from '../../assets/star.png';
 
 const Home: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <Container>
       <Header />
@@ -180,6 +186,9 @@ const Home: React.FC = () => {
             </BarItem>
           </BarGroup>
         </SectionContainer>
+        <ScanQRCodeButton onPress={() => navigation.navigate('QRCode')}>
+          <ScanQRCodeText>Ler QR Code</ScanQRCodeText>
+        </ScanQRCodeButton>
       </ScrollView>
       <BaseMenu />
     </Container>

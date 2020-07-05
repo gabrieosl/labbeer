@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import BaseMenu from '../../components/BaseMenu';
 
 import QRCode from '../../assets/QRCode/QRCode.png';
@@ -16,15 +17,21 @@ const Rewards: React.FC = () => {
         <CloseButton onPress={() => navigation.goBack()}>
           <Image source={CloseIcon} />
         </CloseButton>
-        <ScrollView
-          contentContainerStyle={{ alignItems: 'center', width: '100%' }}
-        />
-        <Image source={QRCode} />
-        <H1>QRCode do Bar</H1>
-        <P>
-          Abra sua câmera, escaneie o QRCode do Bar e tenha acesso ao cardápio.
-        </P>
-        <ScrollView />
+        <TouchableOpacity
+          style={{ alignItems: 'center' }}
+          onPress={() => navigation.navigate('Menu')}
+        >
+          <ScrollView
+            contentContainerStyle={{ alignItems: 'center', width: '100%' }}
+          />
+          <Image source={QRCode} />
+          <H1>QRCode do Bar</H1>
+          <P>
+            Abra sua câmera, escaneie o QRCode do Bar e tenha acesso ao
+            cardápio.
+          </P>
+          <ScrollView />
+        </TouchableOpacity>
       </Container>
       <BaseMenu />
     </>

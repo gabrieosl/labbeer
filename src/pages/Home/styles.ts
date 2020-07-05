@@ -89,3 +89,23 @@ export const BarItem = styled.SafeAreaView`
 `;
 
 export const BarDetail = styled.SafeAreaView``;
+
+export const ScanQRCodeButton = styled.TouchableOpacity`
+  height: 50px;
+  width: 100%;
+  margin: 0 20px;
+
+  background: #f97115;
+  border-radius: 8px;
+
+  justify-content: center;
+  align-items: center;
+`;
+
+export const ScanQRCodeText = styled.Text`
+  height: 33px;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 33px;
+  color: #fff;
+`;
