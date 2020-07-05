@@ -31,7 +31,7 @@ const Activation: React.FC = () => {
   const navigation = useNavigation();
   const [activationCode, setActivationCode] = useState('');
   const [codeSentAt, setCodeSentAt] = useState(new Date(2010, 1, 1));
-  const [secondsToSendAgain, setSecondsToSendAgain] = useState(0);
+  const [secondsToSendAgain, setSecondsToSendAgain] = useState(60);
 
   const inputRef = useRef<any>(null);
 
@@ -70,6 +70,9 @@ const Activation: React.FC = () => {
 
   useEffect(() => {
     sendActivationCode();
+    const x = setInterval(() => {
+      setSecondsToSendAgain(secondsToSendAgain - 1);
+    }, 1000);
   }, []);
 
   return (

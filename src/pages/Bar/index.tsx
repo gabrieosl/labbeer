@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { View, Image, ScrollView } from 'react-native';
 
 import api from '../../services/api';
 
 import Header from '../../components/Header';
 import BaseMenu from '../../components/BaseMenu';
+import RatingInput from '../../components/RatingInput';
 import star from '../../assets/star.png';
 import starWhite from '../../assets/star_white.png';
 
@@ -70,6 +71,17 @@ const Bar: React.FC<BarProps> = ({ route }) => {
   const [bar, setBar] = useState<BarItemProps>({} as BarItemProps);
   const [ratings, setRatings] = useState<RatingItemProps[]>([]);
 
+  const meanRating = useMemo(() => {
+    const mean =
+      ratings.reduce((total, current) => {
+        // eslint-disable-next-line no-param-reassign
+        total += current.service;
+        return total;
+      }, 0) / ratings.length;
+
+    return mean.toFixed(2);
+  }, [ratings]);
+
   useEffect(() => {
     async function getBarData() {
       const response = await api.get(`/bars/${route.params.barId}`);
@@ -108,17 +120,12 @@ const Bar: React.FC<BarProps> = ({ route }) => {
             <AvgRating>
               <Image source={star} />
               <AvgRatingText>
-                {`${parseFloat(
-                  ratings.reduce((total, current) => {
-                    total += current.service;
-                    return total;
-                  }, 0) / ratings.length,
-                ).toFixed(2)} (${ratings.length})`}
+                {`${meanRating} (${ratings.length})`}
               </AvgRatingText>
             </AvgRating>
             <RatingsTitle>Opiniões</RatingsTitle>
             <Ratings>
-              {ratings.map(rating => (
+              {ratings.slice(0, 3).map(rating => (
                 <View key={rating.id}>
                   <RatingAuthor>
                     <AuthorAvatar source={{ uri: rating.customer.avatar }} />
@@ -133,6 +140,7 @@ const Bar: React.FC<BarProps> = ({ route }) => {
                 </View>
               ))}
             </Ratings>
+            <RatingInput />
           </Content>
         </Container>
       </ScrollView>

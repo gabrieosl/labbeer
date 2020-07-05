@@ -12,6 +12,7 @@ import api from '../services/api';
 interface User {
   name: string;
   avatar: string;
+  id: number;
 }
 
 interface AuthState {
@@ -51,7 +52,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const signIn = useCallback(async () => {
     // const response = await api.get(`/customers?email=${email}`);
     const response = await api.get(
-      `/customers?email=Jerod.Casper41@hotmail.com`,
+      `/customers?email=Karla_Carvalho36@live.com`,
     );
     if (response.status === 200 && response.data.length) {
       const user = response.data[0];
