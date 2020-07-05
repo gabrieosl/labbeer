@@ -27,7 +27,7 @@ interface SignInCredentials {
 interface ContextData {
   // eslint-disable-next-line @typescript-eslint/ban-types
   user: User;
-  signIn(credentials: SignInCredentials): Promise<void>;
+  signIn(credentials?: SignInCredentials): Promise<void>;
   signOut(): void;
 }
 
@@ -48,8 +48,11 @@ export const AuthProvider: React.FC = ({ children }) => {
     loadStoredData();
   }, []);
 
-  const signIn = useCallback(async ({ email }: SignInCredentials) => {
-    const response = await api.get(`/customers?email=${email}`);
+  const signIn = useCallback(async () => {
+    // const response = await api.get(`/customers?email=${email}`);
+    const response = await api.get(
+      `/customers?email=Jerod.Casper41@hotmail.com`,
+    );
     if (response.status === 200 && response.data.length) {
       const user = response.data[0];
       await AsyncStorage.setItem('@Labbeer:token', 'token');

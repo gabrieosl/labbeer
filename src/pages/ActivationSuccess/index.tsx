@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
+import { useAuth } from '../../hooks/auth';
 import ActivatedLogo from '../../assets/activated_logo.png';
 
 import {
@@ -13,6 +14,7 @@ import {
 } from './styles';
 
 const Activation: React.FC = () => {
+  const { signIn } = useAuth();
   const navigation = useNavigation();
 
   return (
@@ -23,7 +25,7 @@ const Activation: React.FC = () => {
         <H2>
           Sua conta foi ativada com sucesso. Localize seu primeiro bar haha.
         </H2>
-        <ActivationButton active onPress={() => navigation.navigate('Map')}>
+        <ActivationButton active onPress={signIn}>
           <ActivationButtonText>Ok</ActivationButtonText>
         </ActivationButton>
       </Container>

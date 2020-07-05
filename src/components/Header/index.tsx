@@ -5,10 +5,11 @@ import { useAuth } from '../../hooks/auth';
 
 import logo from '../../assets/logo_small.png';
 import coin from '../../assets/coin.png';
+import notificationIcon from '../../assets/Notification.png';
 import {
   Container,
   Content,
-  Aside,
+  Notifications,
   NameCoins,
   Name,
   Coins,
@@ -22,18 +23,14 @@ const Header: React.FC = () => {
   return (
     <Container>
       <Content>
-        <Image source={logo} />
-        <Aside>
-          <NameCoins>
-            <Name>{user.name}</Name>
-            <Coins onPress={signOut}>
-              <Image source={coin} />
-              <CoinsValue>60</CoinsValue>
-            </Coins>
-          </NameCoins>
-          <Avatar source={{ uri: user.avatar }} />
-        </Aside>
-        {/* <Text>{user.name}</Text> */}
+        <Avatar source={{ uri: user.avatar }} />
+        <NameCoins>
+          <Name>{user.name}</Name>
+          <Coins onPress={signOut}>
+            <CoinsValue>350 selos e 1.423 pontos</CoinsValue>
+          </Coins>
+        </NameCoins>
+        <Notifications source={notificationIcon} />
       </Content>
     </Container>
   );

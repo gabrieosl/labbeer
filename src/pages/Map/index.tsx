@@ -144,7 +144,13 @@ const Map: React.FC = () => {
             <BarList>
               {bars.map(bar => (
                 <BarItem key={bar.id}>
-                  <BarDetails onPress={() => navigation.navigate('Map')}>
+                  <BarDetails
+                    onPress={() => {
+                      navigation.navigate('Bar', {
+                        barId: bar.id,
+                      });
+                    }}
+                  >
                     <BarName>{bar.name}</BarName>
                     <BarLocation>
                       <BarAddress numberOfLines={1}>{bar.address}</BarAddress>
@@ -195,7 +201,13 @@ const Map: React.FC = () => {
                         <BarAddress numberOfLines={1}>{bar.address}</BarAddress>
                       </BarLocation>
                     </BarDetails>
-                    <BarLinkButton>
+                    <BarLinkButton
+                      onPress={() => {
+                        navigation.navigate('Bar', {
+                          barId: bar.id,
+                        });
+                      }}
+                    >
                       <BarLinkButtonText>Conhecer</BarLinkButtonText>
                       <Image source={arrowShape} />
                     </BarLinkButton>
