@@ -1,7 +1,7 @@
-import React from 'react';
-import { Text, Image, View, ScrollView } from 'react-native';
-import { AnimatedCircularProgress } from 'react-native-circular-progress';
-import * as Progress from 'react-native-progress';
+import React from "react";
+import { Text, Image, View, ScrollView } from "react-native";
+import { AnimatedCircularProgress } from "react-native-circular-progress";
+import * as Progress from "react-native-progress";
 import {
   Container,
   H1,
@@ -11,16 +11,17 @@ import {
   RewardItem,
   RewardDetails,
   RewardIcon,
-} from './styles';
+} from "./styles";
 
-import Header from '../../components/Header';
+import Header from "../../components/Header";
+import BaseMenu from "../../components/BaseMenu";
 
 const Rewards: React.FC = () => {
   return (
     <Container>
       <Header />
       <ScrollView
-        contentContainerStyle={{ alignItems: 'center', width: '100%' }}
+        contentContainerStyle={{ alignItems: "center", width: "100%" }}
       >
         <AnimatedCircularProgress
           style={{ marginTop: 25 }}
@@ -40,7 +41,7 @@ const Rewards: React.FC = () => {
               }}
               source={{
                 uri:
-                  'https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg',
+                  "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
               }}
             />
           )}
@@ -60,8 +61,8 @@ const Rewards: React.FC = () => {
           >
             {() => (
               <View>
-                <P style={{ color: '#F97115', fontWeight: 'bold' }}>1.432</P>
-                <P style={{ fontWeight: 'bold' }}>/2.500</P>
+                <P style={{ color: "#F97115", fontWeight: "bold" }}>1.432</P>
+                <P style={{ fontWeight: "bold" }}>/2.500</P>
               </View>
             )}
           </AnimatedCircularProgress>
@@ -73,7 +74,7 @@ const Rewards: React.FC = () => {
         <H1
           style={{
             fontSize: 26,
-            alignSelf: 'baseline',
+            alignSelf: "baseline",
             marginLeft: 35,
             marginTop: 15,
           }}
@@ -97,6 +98,7 @@ const Rewards: React.FC = () => {
           </RewardItem>
         </RewardsContainer>
       </ScrollView>
+      <BaseMenu />
     </Container>
   );
 };
