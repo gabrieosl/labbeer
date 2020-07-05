@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 
+import { useNavigation } from '@react-navigation/native';
+
 import Home from '../../assets/BaseMenu/Home.png';
 import Search from '../../assets/BaseMenu/Search.png';
 import Cart from '../../assets/BaseMenu/Cart.png';
@@ -10,21 +12,23 @@ import User from '../../assets/BaseMenu/User.png';
 import { Container, MenuItem } from './styles';
 
 const BaseMenu: React.FC = () => {
+  const navigation = useNavigation();
+
   return (
     <Container>
-      <MenuItem>
+      <MenuItem onPress={() => navigation.navigate('Home')}>
         <Image source={Home} />
       </MenuItem>
-      <MenuItem>
+      <MenuItem onPress={() => navigation.navigate('Map')}>
         <Image source={Search} />
       </MenuItem>
-      <MenuItem>
+      <MenuItem onPress={() => navigation.navigate('Home')}>
         <Image source={Cart} />
       </MenuItem>
-      <MenuItem>
+      <MenuItem onPress={() => navigation.navigate('Rewards')}>
         <Image source={Discounts} />
       </MenuItem>
-      <MenuItem>
+      <MenuItem onPress={() => navigation.navigate('Home')}>
         <Image source={User} />
       </MenuItem>
     </Container>

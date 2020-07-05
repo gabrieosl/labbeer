@@ -1,6 +1,5 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { StatusBar } from 'react-native';
 
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
@@ -11,8 +10,6 @@ const Auth = createStackNavigator();
 
 const AuthRoutes: React.FC = () => (
   <>
-    <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-
     <Auth.Navigator
       screenOptions={{
         headerShown: false,

@@ -27,7 +27,8 @@ const SignUp: React.FC = () => {
   const cpfInputRef = useRef<TextInput>(null);
   const birthdateInputRef = useRef<TextInput>(null);
 
-  const handleSignIn = useCallback(data => {
+  const handleSignUp = useCallback(data => {
+    navigation.navigate('Activation');
     console.log(data);
   }, []);
 
@@ -40,7 +41,7 @@ const SignUp: React.FC = () => {
       <ScrollView>
         <Container>
           <Image source={logo} />
-          <Form ref={formRef} onSubmit={handleSignIn}>
+          <Form ref={formRef} onSubmit={handleSignUp}>
             <Input
               autoCorrect={false}
               autoCapitalize="words"
@@ -80,7 +81,7 @@ const SignUp: React.FC = () => {
               returnKeyType="next"
               onSubmitEditing={() => birthdateInputRef.current?.focus()}
             />
-            <DateInput
+            <Input
               ref={birthdateInputRef}
               autoCorrect={false}
               name="birthdate"
