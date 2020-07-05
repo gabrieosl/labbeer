@@ -1,7 +1,11 @@
 import React from "react";
 import { Text, Image, View, ScrollView } from "react-native";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
-import * as Progress from "react-native-progress";
+import Header from "../../components/Header";
+import BaseMenu from "../../components/BaseMenu";
+
+import { useAuth } from "../../hooks/auth";
+
 import {
   Container,
   H1,
@@ -13,10 +17,12 @@ import {
   RewardIcon,
 } from "./styles";
 
-import Header from "../../components/Header";
-import BaseMenu from "../../components/BaseMenu";
+import MetaOne from "../../assets/Rewards/meta1.png";
+import MetaTwo from "../../assets/Rewards/meta2.png";
 
 const Rewards: React.FC = () => {
+  const { user } = useAuth();
+
   return (
     <Container>
       <Header />
@@ -27,7 +33,7 @@ const Rewards: React.FC = () => {
           style={{ marginTop: 25 }}
           size={184}
           width={4}
-          fill={80}
+          fill={70}
           rotation={-180}
           tintColor="#F97115"
           backgroundColor="#EDF1F7"
@@ -40,8 +46,7 @@ const Rewards: React.FC = () => {
                 borderRadius: 100,
               }}
               source={{
-                uri:
-                  "https://www.diethelmtravel.com/wp-content/uploads/2016/04/bill-gates-wealthiest-person.jpg",
+                uri: user.avatar,
               }}
             />
           )}
@@ -54,7 +59,7 @@ const Rewards: React.FC = () => {
             style={{ marginTop: 25 }}
             size={80}
             width={4}
-            fill={80}
+            fill={70}
             rotation={-180}
             tintColor="#F97115"
             backgroundColor="#EDF1F7"
@@ -83,17 +88,27 @@ const Rewards: React.FC = () => {
         </H1>
         <RewardsContainer>
           <RewardItem>
-            <RewardIcon />
+            <RewardIcon source={MetaOne} />
             <RewardDetails>
-              <H1>Afdjkfd</H1>
-              <P>fjsdklfjlksd</P>
-              <Progress.Bar
-                style={{ marginTop: 4 }}
-                progress={0.3}
-                width={180}
-                color="#F97115"
-                unfilledColor="#EDF1F7"
-              />
+              <H1>Criando Metas</H1>
+              <P>Junte 10 selos e ganhe um</P>
+              <P>copo de Caipirinha.</P>
+              <P>
+                <P style={{ color: "#F97115" }}>5</P>
+                /10
+              </P>
+            </RewardDetails>
+          </RewardItem>
+          <RewardItem>
+            <RewardIcon source={MetaTwo} />
+            <RewardDetails>
+              <H1>Criando Metas</H1>
+              <P>Junte 10 selos e ganhe uma</P>
+              <P>cerveja Budweiser.</P>
+              <P>
+                <P style={{ color: "#F97115" }}>3</P>
+                /10
+              </P>
             </RewardDetails>
           </RewardItem>
         </RewardsContainer>
