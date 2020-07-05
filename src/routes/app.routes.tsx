@@ -8,6 +8,7 @@ import Bar from '../pages/Bar';
 import QRCode from '../pages/QRCode';
 import Menu from '../pages/Menu';
 import Order from '../pages/Order';
+import Splash from '../pages/Splash';
 
 type RootStackParamList = {
   Map: undefined;
@@ -15,6 +16,9 @@ type RootStackParamList = {
   Rewards: undefined;
   Bar: { barId: number };
   QRCode: undefined;
+  Order: undefined;
+  Menu: undefined;
+  Splash: undefined;
 };
 
 const Auth = createStackNavigator<RootStackParamList>();
@@ -35,6 +39,7 @@ const AuthRoutes: React.FC = () => (
       <Auth.Screen name="QRCode" component={QRCode} />
       <Auth.Screen name="Menu" component={Menu} />
       <Auth.Screen name="Order" component={Order} />
+      <Auth.Screen name="Splash" component={Splash} />
     </Auth.Navigator>
   </>
 );

@@ -27,7 +27,7 @@ const Header: React.FC = () => {
         <NameCoins>
           <Name>{user.name}</Name>
           <Coins onPress={signOut}>
-            <CoinsValue>350 selos e 1.423 pontos</CoinsValue>
+            <CoinsValue>1.434 pontos e 350 selos</CoinsValue>
           </Coins>
         </NameCoins>
         <Notifications source={notificationIcon} />
