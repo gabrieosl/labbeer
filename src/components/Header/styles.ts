@@ -26,7 +26,7 @@ export const Name = styled.Text`
   letter-spacing: 1px;
   color: #ffffff;
 `;
-export const Coins = styled.View`
+export const Coins = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
