@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
   width: 100%;
+  /* height: 90px; */
   background: #fff;
 `;
 export const Content = styled.View`

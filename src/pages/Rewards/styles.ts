@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
@@ -46,8 +46,8 @@ export const RewardItem = styled.View`
 `;
 
 export const RewardIcon = styled.Image`
-  width: 100;
-  height: 100;
+  /* width: 100;
+  height: 100; */
   margin-right: 5px;
 `;
 

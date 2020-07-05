@@ -5,6 +5,7 @@ export const Container = styled.SafeAreaView`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  margin-top: 10px;
 `;
 
 export const MenuItem = styled.TouchableOpacity``;

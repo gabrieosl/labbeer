@@ -1,10 +1,10 @@
-import styled, { css } from "styled-components/native";
+import styled, { css } from 'styled-components/native';
 
 interface PProps {
   inverted: boolean;
 }
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
   flex: 1;
   /* align-items: center; */
   width: 100%;
@@ -73,8 +73,8 @@ export const P = styled.Text`
   padding: 4px;
 
   ${(props: PProps) =>
-  props.inverted &&
-  css`
+    props.inverted &&
+    css`
       color: #f97115;
       background: #f9e4d0;
       font-size: 14px;
