@@ -39,7 +39,7 @@ export const BarItem = styled.View`
   justify-content: space-between;
   align-items: center;
 `;
-export const BarDetails = styled.View`
+export const BarDetails = styled.TouchableOpacity`
   flex: 1;
 `;
 export const BarName = styled.Text`
@@ -87,4 +87,33 @@ export const BarLinkButtonText = styled.Text`
   letter-spacing: 1px;
 
   color: #f97115;
+`;
+
+export const Location = styled.View`
+  height: 50px;
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
+export const MyLocationButton = styled.TouchableOpacity`
+  height: 50px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+`;
+export const SearchLocationButton = styled.TouchableOpacity`
+  flex: 1;
+  flex-direction: row;
+  padding-right: 20px;
+`;
+export const LocationText = styled.TextInput`
+  flex: 1;
+  font-family: 'Poppins-ExtraLight';
+  font-size: 12px;
+  line-height: 18px;
+
+  letter-spacing: 1px;
+
+  color: #77838f;
 `;
