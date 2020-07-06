@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import api from '../../services/api';
 
 import Header from '../../components/Header';
@@ -47,6 +48,8 @@ const MENU = [
 ];
 
 const Menu: React.FC = () => {
+  const navigation = useNavigation();
+
   const [bar, setBar] = useState<BarItemProps>({} as BarItemProps);
   const [menu, setMenu] = useState(MENU);
 
@@ -83,6 +86,7 @@ const Menu: React.FC = () => {
                 <AddContainer>
                   <AddButton
                     onPress={() => {
+                      navigation.navigate('Order');
                       setMenu(prevMenu => {
                         const newMenu = [...prevMenu];
                         // eslint-disable-next-line operator-assignment

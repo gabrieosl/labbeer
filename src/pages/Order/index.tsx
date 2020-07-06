@@ -52,13 +52,13 @@ const Order: React.FC = () => {
           <CartItems>
             <CartItem>
               <CartItemText>Budweiser</CartItemText>
-              <CartItemSubtext>10</CartItemSubtext>
+              <CartItemSubtext>1</CartItemSubtext>
               <CartItemSubtext>R$ 8,90</CartItemSubtext>
             </CartItem>
           </CartItems>
           <Table>
             <CartItemSubtext>Total</CartItemSubtext>
-            <TableText>R$ 89,00</TableText>
+            <TableText>R$ 8,90</TableText>
           </Table>
           <OrderButton onPress={() => navigation.navigate('Splash')}>
             <OrderButtonText>Pedir agora</OrderButtonText>
